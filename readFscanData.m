@@ -132,4 +132,3 @@ end
 outputData.frames = frameData;
 outputData.timeVect = (1/outputData.frameRate * outputData.startFrame):1/outputData.frameRate:(1/outputData.frameRate * outputData.endFrame);
 end
-

@@ -26,4 +26,3 @@ else
     xticklabels(labels);
 end
 end
-

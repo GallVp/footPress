@@ -43,7 +43,7 @@ dialogHeight = dialogPos(4);
 % Control props
 btnWidth = dialogWidth / 6;
 btnHeight = dialogHeight / 4;
-txtWidth = btnWidth * 2;
+txtWidth = btnWidth * 3;
 
 btnXSep = btnWidth * 1.2;
 btnYSep = btnHeight * 1.2;
@@ -91,11 +91,15 @@ vars.btnPlotData = uicontrol(d,...
         switch sideSuffix
             case 'L'
                 fullPathL = fullfile(pathName, fileName);
+                fileNameL = fileName;
                 fileName(end-4) = 'R';
+                fileNameR = fileName;
                 fullPathR = fullfile(pathName, fileName);
             case 'R'
                 fullPathR = fullfile(pathName, fileName);
+                fileNameR = fileName;
                 fileName(end-4) = 'L';
+                fileNameL = fileName;
                 fullPathL = fullfile(pathName, fileName);
             otherwise
                 return
@@ -104,6 +108,8 @@ vars.btnPlotData = uicontrol(d,...
         vars.loadedData.leftFootData = readFscanData(fullPathL);
         vars.loadedData.rightFootData = readFscanData(fullPathR);
         vars.fileName = fileName;
+        vars.fileNameL = fileNameL;
+        vars.fileNameR = fileNameR;
         dataLoadedNotify;
     end
 
@@ -123,7 +129,7 @@ vars.btnPlotData = uicontrol(d,...
 %% Update functions
     function dataLoadedNotify
         set(vars.btnPlotData, 'Enable', 'on');
-        set(vars.txtDataInfo, 'String', sprintf('Loaded file(s): %s\n%s', vars.fileName,...
+        set(vars.txtDataInfo, 'String', sprintf('Loaded file(s): %s, %s\n%s', vars.fileNameL, vars.fileNameR,...
             vars.loadedData.leftFootData.comments));
     end
 end

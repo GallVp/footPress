@@ -19,7 +19,8 @@ function [AP, PM, ML] = valentiniCOP(copTrajectory, footData, intervals)
 %   [a b] and [b c].
 %
 %   Outputs:
-%   AP, PM, ML are vectors with lengths equal to number of frames.
+%   AP, PM, ML (units mm) are vectors with lengths equal to number
+%   of frames.
 %
 %
 %   Copyright (c) <2018> <Usman Rashid>
@@ -29,6 +30,8 @@ function [AP, PM, ML] = valentiniCOP(copTrajectory, footData, intervals)
 %   published by the Free Software Foundation; either version 3 of
 %   the License, or ( at your option ) any later version.  See the
 %   LICENSE included with this distribution for more information.
+
+METER_TO_MM_FACTOR = 1000;
 
 frames = split3DMat(footData.frames, footData.timeVect, intervals);
 
@@ -48,14 +51,14 @@ trajectoryYMax = cellfun(@max,splitVector(copTrajectory(:, 2), footData.timeVect
 
 
 for i = 1:size(frames, 1)
-    ap = (trajectoryYMax(i) - trajectoryYMin(i)) * footData.rowSpacing * 1000;
+    ap = (trajectoryYMax(i) - trajectoryYMin(i)) * footData.rowSpacing * METER_TO_MM_FACTOR;
     if(isempty(ap))
         AP(i) = NaN;
     else
         AP(i) = ap;
     end
     
-    ml = (trajectoryXMax(i) - trajectoryXMin(i)) * footData.colSpacing * 1000;
+    ml = (trajectoryXMax(i) - trajectoryXMin(i)) * footData.colSpacing * METER_TO_MM_FACTOR;
     if(isempty(ml))
         ML(i) = NaN;
     else
@@ -65,7 +68,7 @@ for i = 1:size(frames, 1)
     [heelTipY, ~, ~] = find(heelTip ~= 0 & ~isnan(heelTip));
     
     heelpTip = max(heelTipY);
-    pm = (heelpTip - trajectoryYMax(i)) * footData.rowSpacing * 1000;
+    pm = (heelpTip - trajectoryYMax(i)) * footData.rowSpacing * METER_TO_MM_FACTOR;
     if(isempty(pm))
         PM(i) = NaN;
     else

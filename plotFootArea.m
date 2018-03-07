@@ -27,4 +27,3 @@ xlabel('Time (s)')
 ylabel('Contact area (mmSquared)')
 legend('Left Foot', 'Right Foot')
 end
-

@@ -33,4 +33,3 @@ force = pressureSumKPa(:) .* KPA_TO_PA_FACTOR .* footData.rowSpacing .* footData
 % 9.8 m/s as gravitational acceleration and 100 for percentage
 bwpForce = force ./ footData.bodyMass ./ GRAVITATIONAL_ACCEL .* PERCENTAGE_FACTOR;
 end
-

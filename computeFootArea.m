@@ -26,4 +26,3 @@ area = ~isnan(footData.frames) & footData.frames ~= 0;
 area = sum(sum(area, 1), 2);
 area = area(:) .* footData.rowSpacing .* footData.colSpacing .* MSQUARED_TO_MMSQUARED_FACTOR;
 end
-

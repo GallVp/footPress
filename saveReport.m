@@ -24,4 +24,3 @@ for i = 1 : numVars
         'delimiter',',');
 end
 end
-

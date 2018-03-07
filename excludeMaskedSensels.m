@@ -49,4 +49,3 @@ if(~isempty(maskData))
     end
 end
 end
-

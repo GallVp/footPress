@@ -77,13 +77,14 @@ legend('Left Foot', 'Right Foot')
 % plot cop trajectory
 copTrajectory.lTraj = computeCOPTrajectory(footData.leftFootData.frames);
 copTrajectory.rTraj = computeCOPTrajectory(footData.rightFootData.frames);
-hFig = figure('Name', 'COP Analysis', 'NumberTitle', 'off');
+hFig = figure('Name', 'COP Axis Analysis', 'NumberTitle', 'off');
 axis ij;
 axis([1 20 10 70])
 pbaspect([1 3 1])
 set(gca, 'XTick', []);
 set(gca, 'YTick', []);
 % do the analysis
-copAxisAnalysis(hFig, copTrajectory.lTraj );
-copAxisAnalysis(hFig, copTrajectory.rTraj, 2 );
+HL = copAxisAnalysis(hFig, copTrajectory.lTraj );
+HR = copAxisAnalysis(hFig, copTrajectory.rTraj, 2 );
+legend([HL HR], {'Left Foot', 'Right Foot'})
 end

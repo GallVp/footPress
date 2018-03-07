@@ -70,4 +70,3 @@ reportData.peakPressureRight = computeFootPPS(footData.rightFootData, intervals)
 [reportData.leftAP, reportData.leftPM, reportData.leftML] = valentiniCOP(reportData.leftTrajectory, footData.leftFootData, intervals);
 [reportData.rightAP, reportData.rightPM, reportData.rightML] = valentiniCOP(reportData.rightTrajectory, footData.rightFootData, intervals);
 end
-
