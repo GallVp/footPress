@@ -1,0 +1,9 @@
+# Following folders can be used for local data
+Data/
+Output/
+
+# Matlab ~m files
+*.m~
+
+# .DS_Store banished
+.DS_Store
