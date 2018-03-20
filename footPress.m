@@ -10,6 +10,14 @@ function footPress
 %   the License, or ( at your option ) any later version.  See the
 %   LICENSE included with this distribution for more information.
 
+
+% Include sub folders
+addpath('Helpers');
+addpath('Operators');
+addpath('Plotters');
+addpath('Importers');
+addpath('Exporters');
+
 % Global Variables encapsulated
 vars.loadedData = [];
 vars.intervals = [];
