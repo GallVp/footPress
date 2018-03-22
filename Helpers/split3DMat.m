@@ -5,12 +5,8 @@ function outCell = split3DMat(splittedMat, splittingVect, splitAt)
 %
 %
 %   Copyright (c) <2018> <Usman Rashid>
-%
-%   This program is free software; you  can redistribute it and/or
-%   modify it under the terms of the GNU General Public License as
-%   published by the Free Software Foundation; either version 3 of
-%   the License, or ( at your option ) any later version.  See the
-%   LICENSE included with this distribution for more information.
+%   Licensed under the MIT License. See LICENSE in the project
+%   root for license information.
 
 splittingVect = reshape(splittingVect, length(splittingVect), 1);
 splitAt = reshape(splitAt, length(splitAt), 1);
