@@ -37,10 +37,10 @@ semimin     = [meanCop; meanCop+2.45*sqrt(D(2,2))*V(:,2)']; % center and end of 
 theta       = linspace(0, 2*pi, 100)';
 ellipse     = 2.45*sqrt(D(1,1))*cos(theta)*V(:,1)' + 2.45*sqrt(D(2,2))*sin(theta)*V(:,2)' + ones(size(theta))*meanCop;
 figure(hFig);
-hold on
+hold on;
 plot(copTraj(:,1), copTraj(:,2), cols{1}); % scatter plot with x = column 1 of copTraj, y = column 2
 plot(semimaj(:,1), semimaj(:,2), cols{2}, 'LineWidth', 2);
 plot(semimin(:,1), semimin(:,2), cols{2}, 'LineWidth', 2);
 h = plot(ellipse(:,1), ellipse(:,2), cols{3}, 'LineWidth', 2);
-hold off
+hold off;
 end

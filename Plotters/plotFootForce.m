@@ -12,12 +12,11 @@ fHandle = figure('Name', figTitle, 'NumberTitle', 'off');
 [~, pbwForceRight] = computeFootForce(rightFootData);
 
 % Plot left foot
-plot(leftFootData.timeVect, pbwForceLeft)
+plot(leftFootData.timeVect, pbwForceLeft, 'LineWidth', 2);
 % plot right foot
 hold
-plot(rightFootData.timeVect, pbwForceRight)
-title(leftFootData.comments)
-xlabel('Time (s)')
-ylabel('Percentage of BW (%)')
-legend('Left Foot', 'Right Foot')
+plot(rightFootData.timeVect, pbwForceRight, 'LineWidth', 2);
+xlabel('Time (s)');
+ylabel('Percentage of BW (%)');
+legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
 end

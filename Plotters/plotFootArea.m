@@ -13,13 +13,12 @@ areaL = computeFootArea(leftFootData);
 areaR = computeFootArea(rightFootData);
 
 % Plot left foot
-plot(leftFootData.timeVect, areaL)
+plot(leftFootData.timeVect, areaL, 'LineWidth', 2);
 % plot right foot
 hold
-plot(rightFootData.timeVect, areaR)
+plot(rightFootData.timeVect, areaR, 'LineWidth', 2);
 
-title(leftFootData.comments)
-xlabel('Time (s)')
-ylabel('Contact area (mmSquared)')
-legend('Left Foot', 'Right Foot')
+xlabel('Time (s)');
+ylabel('Contact area (mmSquared)');
+legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
 end

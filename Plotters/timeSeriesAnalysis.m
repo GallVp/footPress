@@ -40,6 +40,9 @@ footData = excludeMaskedSensels(footData, maskData);
 meanContactAreaL = cellfun(@mean,splitVector(lArea, footData.leftFootData.timeVect, intervals));
 meanContactAreaR = cellfun(@mean,splitVector(rArea, footData.leftFootData.timeVect, intervals));
 
+stdContactAreaL = cellfun(@std,splitVector(lArea, footData.leftFootData.timeVect, intervals));
+stdContactAreaR = cellfun(@std,splitVector(rArea, footData.leftFootData.timeVect, intervals));
+
 % Create interval labels
 intervalLabels = cell(length(meanContactAreaL), 1);
 for i=1:length(meanContactAreaL)
@@ -49,26 +52,35 @@ end
 % Plot mean contact area per intervals
 figure('Name', 'Mean Contact Area', 'NumberTitle', 'off');
 
-barSpecial([meanContactAreaL meanContactAreaR], intervalLabels);
+barwitherrnn([stdContactAreaL stdContactAreaR], [meanContactAreaL meanContactAreaR]);
+set(gca, 'Ticklength', [0 1]);
+xticklabels(intervalLabels);
 
-% Plot time intervals
-xlabel('Interval Time (sec)')
-ylabel('Mean contact area (mm^{2})')
-legend('Left Foot', 'Right Foot')
+% Add time intervals
+xlabel('Interval Time (sec)');
+ylabel('Mean contact area (mm^{2})');
+legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
+box off;
 
 % Plot mean foot force per interval
 % Compute and plot results as per time slices
 meanFootForceL = cellfun(@mean,splitVector(lWeight, footData.leftFootData.timeVect, intervals));
 meanFootForceR = cellfun(@mean,splitVector(rWeight, footData.leftFootData.timeVect, intervals));
+stdFootForceL = cellfun(@std,splitVector(lWeight, footData.leftFootData.timeVect, intervals));
+stdFootForceR = cellfun(@std,splitVector(rWeight, footData.leftFootData.timeVect, intervals));
 figure('Name', 'Mean Foot Force', 'NumberTitle', 'off');
 
-barSpecial([meanFootForceL meanFootForceR], intervalLabels);
+barwitherrnn([stdFootForceL stdFootForceR], [meanFootForceL meanFootForceR]);
+set(gca, 'Ticklength', [0 1]);
+xticklabels(intervalLabels);
 
-
-% Plot time interval points
+% Add time interval points
 xlabel('Interval Time (sec)')
 ylabel('Percentage of BW (%)')
-legend('Left Foot', 'Right Foot')
+legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
+box off;
+axInfo = axis;
+axis([axInfo(1) axInfo(2) 0 100]);
 
 % plot cop trajectory
 copTrajectory.lTraj = computeCOPTrajectory(footData.leftFootData.frames);
@@ -79,8 +91,11 @@ axis([1 20 10 70])
 pbaspect([1 3 1])
 set(gca, 'XTick', []);
 set(gca, 'YTick', []);
+set(gca, 'LineWidth', 2);
 % do the analysis
 HL = copAxisAnalysis(hFig, copTrajectory.lTraj );
 HR = copAxisAnalysis(hFig, copTrajectory.rTraj, 2 );
-legend([HL HR], {'Left Foot', 'Right Foot'})
+legend([HL HR], {'Left Foot', 'Right Foot'}, 'Box', 'off');
+set(gca, 'XColor', [1 1 1]);
+set(gca, 'YColor', [1 1 1]);
 end
