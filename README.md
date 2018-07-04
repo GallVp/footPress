@@ -7,7 +7,7 @@ The main features of the toolbox include data visualisation, sensor masking, tim
 
 |![alt text](Samples/overview.png)|
 |:--:|
-|*The main data scroll GUI of footPress along with some of the other plots produced by different operations*|
+|**Fig. 1.** *The main data scroll GUI of footPress along with some of the other plots produced by different operations.*|
 
 ## Compatibility
 Currently footPress is being developed on macOS High Sierra, MATLAB 2017b.
