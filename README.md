@@ -24,7 +24,7 @@ The main features of the toolbox include data visualisation, sensor masking, tim
 
 The main data scroll GUI of footPress along with some of the other plots produced by different operations:
 
-<img alt="overview_figure PNG image" src="https://github.com/GallVp/footPress/Samples/overview.png"/>
+[[https://github.com/GallVp/footPress/blob/master/Samples/overview.png|alt=overview_figure]]
 
 ## Third Party Libraries
 footPress uses following third party libraries. The licenses for these libraries can be found next to source files in their respective libs/thirdpartlib folders.
