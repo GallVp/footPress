@@ -51,16 +51,25 @@ end
 
 % Plot mean contact area per intervals
 figure('Name', 'Mean Contact Area', 'NumberTitle', 'off');
-
-barwitherrnn([stdContactAreaL stdContactAreaR], [meanContactAreaL meanContactAreaR]);
+barStat = [meanContactAreaL meanContactAreaR];
+errStat = [stdContactAreaL stdContactAreaR];
+barwitherrnn(errStat, barStat);
 set(gca, 'Ticklength', [0 1]);
-xticklabels(intervalLabels);
-
-% Add time intervals
-xlabel('Interval Time (sec)');
-ylabel('Mean contact area (mm^{2})');
-legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
-box off;
+if(~isrow(barStat))
+    xticklabels(intervalLabels);
+    % Add time intervals
+    xlabel('Interval Time (sec)');
+    ylabel('Mean contact area (mm^{2})');
+    legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
+    box off;
+else
+    xticklabels({'Left Foot', 'Right Foot'});
+    % Add time intervals
+    xlabel(sprintf('Interval Time: %s (sec)', intervalLabels{1}));
+    ylabel('Mean contact area (mm^{2})');
+    legend off;
+    box off;
+end
 
 % Plot mean foot force per interval
 % Compute and plot results as per time slices
@@ -70,18 +79,25 @@ stdFootForceL = cellfun(@std,splitVector(lWeight, footData.leftFootData.timeVect
 stdFootForceR = cellfun(@std,splitVector(rWeight, footData.leftFootData.timeVect, intervals));
 figure('Name', 'Mean Foot Force', 'NumberTitle', 'off');
 
-barwitherrnn([stdFootForceL stdFootForceR], [meanFootForceL meanFootForceR]);
+barStat = [meanFootForceL meanFootForceR];
+errStat = [stdFootForceL stdFootForceR];
+barwitherrnn(errStat, barStat);
 set(gca, 'Ticklength', [0 1]);
-xticklabels(intervalLabels);
-
-% Add time interval points
-xlabel('Interval Time (sec)')
-ylabel('Percentage of BW (%)')
-legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
-box off;
-axInfo = axis;
-axis([axInfo(1) axInfo(2) 0 100]);
-
+if(~isrow(barStat))
+    xticklabels(intervalLabels);
+    % Add time interval points
+    xlabel('Interval Time (sec)')
+    ylabel('Percentage of BW (%)')
+    legend({'Left Foot', 'Right Foot'}, 'Box', 'off');
+    box off;
+else
+    xticklabels({'Left Foot', 'Right Foot'});
+    % Add time intervals
+    xlabel(sprintf('Interval Time: %s (sec)', intervalLabels{1}));
+    ylabel('Percentage of BW (%)');
+    legend off;
+    box off;
+end
 % plot cop trajectory
 copTrajectory.lTraj = computeCOPTrajectory(footData.leftFootData.frames);
 copTrajectory.rTraj = computeCOPTrajectory(footData.rightFootData.frames);

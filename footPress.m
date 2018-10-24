@@ -13,6 +13,7 @@ addpath('Operators');
 addpath('Plotters');
 addpath('Importers');
 addpath('Exporters');
+addpath(genpath('libs'));
 
 % Global Variables encapsulated
 vars.loadedData = [];
