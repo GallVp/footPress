@@ -2,7 +2,7 @@
 
 footPress is a MATLAB based toolbox which can be used for visualization and analysis of plantar pressure data.
 
-### Citation
+### Citation ([doi](10.1007/978-3-030-01845-0_72))
 
 Rashid, U., Signal, N., Niazi, I. K., & Taylor, D. (2018, October). footPress: An Open-Source MATLAB Toolbox for Analysis of Pedobarography Data. In International Conference on NeuroRehabilitation (pp. 361-364). Springer, Cham.
 
