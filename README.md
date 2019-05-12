@@ -4,7 +4,7 @@ footPress is a MATLAB based toolbox which can be used for visualization and anal
 
 ## Related Publications
 
-### 1. footPress: An Open-Source MATLAB Toolbox for Analysis of Pedobarography Data. in *International Conference on NeuroRehabilitation*, doi: [10.1007/978-3-030-01845-0_72](https://doi.org/10.1007/978-3-030-01845-0_72)
+1. footPress: An Open-Source MATLAB Toolbox for Analysis of Pedobarography Data. in *International Conference on NeuroRehabilitation*, doi: [10.1007/978-3-030-01845-0_72](https://doi.org/10.1007/978-3-030-01845-0_72)
 
 ## Overview
 The main features of the toolbox include data visualisation, sensor masking, time series, center of pressure and multi-segment analysis along with report generation. The toolbox can be used with an intuitive graphical user interface (GUI) without working with the underlying code. However, a functional approach to code implementation ensures that the toolbox can be used as a set of independent functions and new functions can easily be added.
